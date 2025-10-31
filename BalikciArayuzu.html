@@ -1,0 +1,15 @@
+<form action="/add-fish" method="POST">
+  <label>Balıkçı Adı:</label>
+  <input type="text" name="fisher_name" required><br>
+
+  <label>Balık Türü:</label>
+  <input type="text" name="fish_type" required><br>
+
+  <label>Tutulma Tarihi:</label>
+  <input type="datetime-local" name="caught_date" required><br>
+
+  <label>Mühürlenme Tarihi:</label>
+  <input type="datetime-local" name="sealed_date" required><br>
+
+  <button type="submit">Kaydet ve QR Oluştur</button>
+</form>
