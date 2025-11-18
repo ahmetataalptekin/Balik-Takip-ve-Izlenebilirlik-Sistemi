@@ -39,3 +39,14 @@ function getData() {
   infoTable.appendChild(newTd2);
   infoTable.appendChild(newTd3);
 }
+
+function sendData() {
+  let date = document.querySelector('#date').value;
+  let region = document.querySelector('#place').value;
+  let fishType = document.querySelector('#type').value;
+  let port = document.querySelector('#port').value;
+  console.log(date);
+  console.log(region);
+  console.log(fishType);
+  console.log(port);
+}
