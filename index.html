@@ -5,37 +5,65 @@
   </head>
   <body>
     <div id = "container">
-      <h1 id = "main-title">
-        BALIK TAKIP VE IZLENEBILIRLIK SISTEMI
-      </h1>
-      <h2>
-        Baliklari denizden ciktigi andan itibaren izlenebilirligini saglayan sistem.
-      </h2>
-      <h3>
-        Alacaginiz baligin oldugu kutudaki QR kodu okutun ve asagidaki tabloya bilgileriniz gelecek.
-      </h3>
-      <button onclick = "getData()">QR Kodu Okut</button>
-      <table>
-        <caption>
-          Baliginizin Bilgileri
-        </caption>
-        <thead>
-          <tr>
-            <th scope = "col">Limana Cikarildigi Tarih</th>
-            <th scope = "col">Tutuldugu Bolge</th>
-            <th scope = "col">Baligin Cesidi</th>
-            <th scope = "col">Baligin Cikarildigi Liman</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id = "data">
-            <th scope = "row">YOK</th>
-            <td>YOK</td>
-            <td>YOK</td>
-            <td>YOK</td>
-          </tr>
-        </tbody>
-      </table>
+      <div id = "user">
+        <h1 id = "main-title">
+          BALIK TAKIP VE IZLENEBILIRLIK SISTEMI
+        </h1>
+        <h2>
+          Baliklari denizden ciktigi andan itibaren izlenebilirligini saglayan sistem.
+        </h2>
+        <h3>
+          Alacaginiz baligin oldugu kutudaki QR kodu okutun ve asagidaki tabloya bilgileriniz gelecek.
+        </h3>
+        <button onclick = "getData()">QR Kodu Okut</button>
+        <table>
+          <caption>
+            Baliginizin Bilgileri
+          </caption>
+          <thead>
+            <tr>
+              <th scope = "col">Limana Cikarildigi Tarih</th>
+              <th scope = "col">Tutuldugu Bolge</th>
+              <th scope = "col">Baligin Cesidi</th>
+              <th scope = "col">Baligin Cikarildigi Liman</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id = "data">
+              <th scope = "row">YOK</th>
+              <td>YOK</td>
+              <td>YOK</td>
+              <td>YOK</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <div id = "fisher">
+        <h1>Balikciler Icin</h1>
+        <h2>Baliklarinizin bilgilerini giriniz:</h2>
+        <label for="date">
+          Limana Cikarildigi Tarih:
+        </label>
+        <input type="date" id="date" name="date"/>
+        <br><br>
+        <label for="place">
+          Tutuldugu Bolge:
+        </label>
+        <input type="text" id="place" name="place"/>
+        <br><br>
+        <label for="type">
+          Baligin Cesidi:
+        </label>
+        <input type="text" id="type" name="type"/>
+        <br><br>
+        <label for="port">
+          Baligin Cikarildigi Liman:
+        </label>
+        <input type="text" id="port" name="port"/>
+        <br><br>
+        <button>Verileri Gönder</button>
+      </div>
     </div>
     <script src = "./index.js"></script>
   </body>
