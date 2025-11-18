@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 10px;
   font-family: monospace;
   color: white;
 }
@@ -10,6 +10,10 @@ html {
 }
 body {
   background-color: #01081c;
+}
+
+#container {
+  position: center;
 }
 
 table {
@@ -41,8 +45,9 @@ tbody {
 }
 
 button {
-  height: 50px;
-  width: 100px;
+  font-size: 10px;
+  height: 30px;
+  width: 90px;
   border: 1px solid white;
   color: white;
   background-color: #05240c;
