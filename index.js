@@ -1,3 +1,4 @@
+
 const dateData = ["14.11.2025", "15.11.2025", "16.11.2025"];
 let regionData = ["EGE", "AKDENIZ", "KARADENIZ"];
 let typeData = ["CUPRA", "HAMSI", "LEVREK"];
@@ -45,8 +46,25 @@ function sendData() {
   let region = document.querySelector('#place').value;
   let fishType = document.querySelector('#type').value;
   let port = document.querySelector('#port').value;
-  console.log(date);
-  console.log(region);
-  console.log(fishType);
-  console.log(port);
+  fetch("api.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      date: date,
+      region: region,
+      type: fishType,
+      port: port
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log("PHP Response:", data);
+
+    alert("Veriler PHP'ye gönderildi!");
+  })
+  .catch(err => {
+    console.error("Hata:", err);
+  });
 }
