@@ -5,9 +5,10 @@ function clearAll()
 }
 function open_link()
 {
-	let target_id = document.querySelector('#fish_id_input').value;
+	const target_id = document.querySelector('#fish_id_input').value;
 	document.querySelector('#id_search').onclick = function ()
 	{
 		window.location.href = "https://balik.yeminlirobot.com/?kayit_id=" + target_id;
+		console.log(target_id);
 	}
 }
