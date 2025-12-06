@@ -4,15 +4,21 @@ function clearAll()
 	infoTable.innerHTML = '';
 }
 
-document.querySelector('#id_search').addEventListener('click', () => {
+function goToFish() {
     const target_id = document.querySelector('#fish_id_input').value.trim();
-
-    console.log("Target ID:", target_id);
 
     if (target_id === "") {
         alert("Lütfen bir ID girin.");
         return;
     }
 
-    window.location.href = "https://balik.yeminlirobot.com/?kayit_id=" + target_id;
+    window.location.href = "https://balik.yeminlirobot.com/?kayit_id=" + target_id;
+}
+
+document.querySelector('#id_search').addEventListener('click', goToFish);
+
+document.querySelector('#fish_id_input').addEventListener('keydown', (event) => {
+    if (event.key === "Enter") {
+        goToFish();
+    }
 });
