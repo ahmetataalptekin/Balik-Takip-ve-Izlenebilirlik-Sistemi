@@ -25,3 +25,24 @@ document.querySelector('#fish_id_input').addEventListener('keydown', (event) => 
         goToFish();
     }
 });
+
+const currentUrl = window.location.href;
+
+let qrcode = new QRCode(document.getElementById("qrcode"),
+{
+	text: currentUrl,
+	width: 256,
+	height: 256
+});
+
+document.getElementById('downloadBtn').addEventListener('click', function ()
+{
+	let canvas = document.querySelector("#qrcode canvas");
+	let image = canvas.toDataURL("image/png");
+
+	let link = document.createElement("a");
+	link.href = image;
+	link.download = "qrcode.png";
+	link.click();
+});
+
