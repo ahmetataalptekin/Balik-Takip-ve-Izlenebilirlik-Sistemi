@@ -92,7 +92,7 @@ $result = $conn->query($sql);
             </tbody>
         </table>
         <?php endif; ?>
-        <!-- ===== QR KOD AÇ/KAPA BÖLÜMÜ (BU BLOĞU ESKİSİYLE DEĞİŞTİR) ===== -->
+        <!-- QR Aç Kapa -->
         <div id="qr-section" style="max-width:340px; margin-top:20px;">
         <h2 id="qr-toggle" style="cursor:pointer; user-select:none; display:flex; align-items:center; gap:8px;">
             <span style="font-weight:600;">QR Kod</span>
@@ -107,91 +107,88 @@ $result = $conn->query($sql);
         </div>
     </div>
 
-<!-- qrcode kütüphanesi: önce bunu ekle (veya zaten ekliyse yine de önce yüklendiğinden emin ol) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    const toggle = document.getElementById("qr-toggle");
-    const content = document.getElementById("qr-content");
-    const arrow = document.getElementById("qr-arrow");
-    const qrcodeEl = document.getElementById("qrcode");
-    const downloadBtn = document.getElementById("downloadBtn");
+        document.addEventListener("DOMContentLoaded", function() {
+        const toggle = document.getElementById("qr-toggle");
+        const content = document.getElementById("qr-content");
+        const arrow = document.getElementById("qr-arrow");
+        const qrcodeEl = document.getElementById("qrcode");
+        const downloadBtn = document.getElementById("downloadBtn");
 
-    let qrCreated = false;
-    let qrInstance = null;
+        let qrCreated = false;
+        let qrInstance = null;
 
-    function createQR() {
-        // temizle önceki varsa
-        qrcodeEl.innerHTML = "";
-        // QR kütüphanesi canvas/img oluşturuyor
-        qrInstance = new QRCode(qrcodeEl, {
-        text: window.location.href,
-        width: 256,
-        height: 256,
-        correctLevel: QRCode.CorrectLevel.H
+        function createQR() {
+            // temizle önceki varsa
+            qrcodeEl.innerHTML = "";
+            // QR kütüphanesi canvas/img oluşturuyor
+            qrInstance = new QRCode(qrcodeEl, {
+            text: window.location.href,
+            width: 256,
+            height: 256,
+            correctLevel: QRCode.CorrectLevel.H
+            });
+            qrCreated = true;
+        }
+
+        toggle.addEventListener("click", function() {
+            const isHidden = content.style.display === "none" || content.style.display === "";
+            if (isHidden) {
+            content.style.display = "block";
+            arrow.textContent = "▴";
+            if (!qrCreated) {
+                // küçük delay: emin olmak için next tick'te oluştur
+                setTimeout(createQR, 0);
+            }
+            } else {
+            content.style.display = "none";
+            arrow.textContent = "▾";
+            }
         });
-        qrCreated = true;
-    }
 
-    toggle.addEventListener("click", function() {
-        const isHidden = content.style.display === "none" || content.style.display === "";
-        if (isHidden) {
-        content.style.display = "block";
-        arrow.textContent = "▴";
-        if (!qrCreated) {
-            // küçük delay: emin olmak için next tick'te oluştur
-            setTimeout(createQR, 0);
-        }
-        } else {
-        content.style.display = "none";
-        arrow.textContent = "▾";
-        }
-    });
+        // İndirme fonksiyonu: canvas veya img ise yakalayıp indirir
+        downloadBtn.addEventListener("click", function() {
+            // önce QR oluşturulmamışsa oluştur
+            if (!qrCreated) {
+            createQR();
+            }
 
-    // İndirme fonksiyonu: canvas veya img ise yakalayıp indirir
-    downloadBtn.addEventListener("click", function() {
-        // önce QR oluşturulmamışsa oluştur
-        if (!qrCreated) {
-        createQR();
-        }
+            // canvas varsa onu kullan
+            const canvas = qrcodeEl.querySelector("canvas");
+            if (canvas) {
+            const dataUrl = canvas.toDataURL("image/png");
+            const link = document.createElement("a");
+            link.href = dataUrl;
+            link.download = "qrcode.png";
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            return;
+            }
 
-        // canvas varsa onu kullan
-        const canvas = qrcodeEl.querySelector("canvas");
-        if (canvas) {
-        const dataUrl = canvas.toDataURL("image/png");
-        const link = document.createElement("a");
-        link.href = dataUrl;
-        link.download = "qrcode.png";
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-        return;
-        }
+            // img varsa onu kullan
+            const img = qrcodeEl.querySelector("img");
+            if (img && img.src) {
+            const link = document.createElement("a");
+            link.href = img.src;
+            link.download = "qrcode.png";
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            return;
+            }
 
-        // img varsa onu kullan
-        const img = qrcodeEl.querySelector("img");
-        if (img && img.src) {
-        const link = document.createElement("a");
-        link.href = img.src;
-        link.download = "qrcode.png";
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-        return;
-        }
+            // Eğer hiçbiri yoksa kullanıcıya uyarı ver
+            alert("QR kod henüz oluşturulmadı veya tarayıcınız desteklemiyor.");
+        });
 
-        // Eğer hiçbiri yoksa kullanıcıya uyarı ver
-        alert("QR kod henüz oluşturulmadı veya tarayıcınız desteklemiyor.");
-    });
-
-    // Eğer sayfa adresine göre otomatik açık olmasını istersen, buraya ekle:
-    // if (window.location.search.includes("kayit_id=")) { toggle.click(); }
-    });
+        // Eğer sayfa adresine göre otomatik açık olmasını istersen, buraya ekle:
+        // if (window.location.search.includes("kayit_id=")) { toggle.click(); }
+        });
     </script>
 
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-        <script src = "./index.js"></script>
+    <script src = "./index.js"></script>
     </div>
 </body>
 
