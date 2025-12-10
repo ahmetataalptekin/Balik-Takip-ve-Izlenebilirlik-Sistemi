@@ -86,7 +86,7 @@ $result = $conn->query($sql);
                 }
                 else
                 {
-                    echo "<tr><td colspan='3'>Kayıt bulunamadı</td></tr>";
+                    echo "<tr><td colspan='11'>Kayıt bulunamadı</td></tr>";
                 }
                 ?>
             </tbody>
