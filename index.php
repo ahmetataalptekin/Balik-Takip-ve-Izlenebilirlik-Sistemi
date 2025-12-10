@@ -92,13 +92,13 @@ $result = $conn->query($sql);
             </tbody>
         </table>
         <?php endif; ?>
+        <br><br>
+        <h2>QR Kod:</h2>
+        <div id="qrcode"></div>
+        <button id="downloadBtn">QR Kodu Indir</button>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+        <script src = "./index.js"></script>
     </div>
-    <br><br>
-    <h2>QR Kod:</h2>
-    <div id="qrcode"></div>
-    <button id="downloadBtn">QR Kodu Indir</button>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script src = "./index.js"></script>
 </body>
 
 </html>
