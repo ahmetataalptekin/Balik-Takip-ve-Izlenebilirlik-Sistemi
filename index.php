@@ -24,7 +24,6 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balık Takip ve İzlenebilirlik Sistemi</title>
     <link href = "./style.css" rel = "stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 
 <body>
@@ -98,6 +97,7 @@ $result = $conn->query($sql);
     <h2>QR Kod:</h2>
     <div id="qrcode"></div>
     <button id="downloadBtn">QR Kodu Indir</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src = "./index.js"></script>
 </body>
 
@@ -108,3 +108,4 @@ $result = $conn->query($sql);
 $conn->close();
 
 ?>
+
