@@ -46,7 +46,9 @@ document.getElementById('downloadBtn').addEventListener('click', function ()
 	link.click();
 });
 
-// QR bölümünü aç/kapa
+let qrCreated = false;
+
+// QR bölümünü aç/kapat
 document.getElementById("qr-toggle").addEventListener("click", () => {
     const content = document.getElementById("qr-content");
     const arrow = document.getElementById("qr-arrow");
@@ -54,6 +56,17 @@ document.getElementById("qr-toggle").addEventListener("click", () => {
     if (content.style.display === "none") {
         content.style.display = "block";
         arrow.textContent = "▲";
+
+        // QR kodu sadece bir kez oluştur
+        if (!qrCreated) {
+            new QRCode(document.getElementById("qrcode"), {
+                text: window.location.href,
+                width: 256,
+                height: 256
+            });
+            qrCreated = true;
+        }
+
     } else {
         content.style.display = "none";
         arrow.textContent = "▼";

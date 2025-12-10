@@ -94,14 +94,14 @@ $result = $conn->query($sql);
         <?php endif; ?>
         <br><br>
         <div id="qr-section">
-            <h2 id="qr-toggle" style="cursor:pointer;">
-                QR Kod <span id="qr-arrow">▼</span>
-            </h2>
+        <h2 id="qr-toggle" style="cursor:pointer;">
+            QR Kod <span id="qr-arrow">▼</span>
+        </h2>
 
-            <div id="qr-content" style="display:none; margin-top:10px;">
-                <div id="qrcode"></div>
-                <button id="downloadBtn">QR Kodu İndir</button>
-            </div>
+        <div id="qr-content" style="display:none; margin-top:10px;">
+            <div id="qrcode"></div>
+            <button id="downloadBtn">QR Kodu İndir</button>
+        </div>
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
