@@ -22,7 +22,7 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veritabanından Veri Çekme</title>
+    <title>Balık Takip ve İzlenebilirlik Sistemi</title>
     <link href = "./style.css" rel = "stylesheet">
 </head>
 
@@ -93,6 +93,11 @@ $result = $conn->query($sql);
         </table>
         <?php endif; ?>
     </div>
+    <br><br>
+    <h2>QR Kod:</h2>
+    <div id="qrcode"></div>
+    <button id="downloadBtn">QR Kodu Indir</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src = "./index.js"></script>
 </body>
 
@@ -101,4 +106,6 @@ $result = $conn->query($sql);
 <?php
 // Bağlantıyı kapat
 $conn->close();
+
 ?>
+
