@@ -46,3 +46,16 @@ document.getElementById('downloadBtn').addEventListener('click', function ()
 	link.click();
 });
 
+// QR bölümünü aç/kapa
+document.getElementById("qr-toggle").addEventListener("click", () => {
+    const content = document.getElementById("qr-content");
+    const arrow = document.getElementById("qr-arrow");
+
+    if (content.style.display === "none") {
+        content.style.display = "block";
+        arrow.textContent = "▲";
+    } else {
+        content.style.display = "none";
+        arrow.textContent = "▼";
+    }
+});
