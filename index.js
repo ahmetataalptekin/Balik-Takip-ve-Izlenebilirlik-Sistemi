@@ -26,15 +26,6 @@ document.querySelector('#fish_id_input').addEventListener('keydown', (event) => 
     }
 });
 
-const currentUrl = window.location.href;
-
-let qrcode = new QRCode(document.getElementById("qrcode"),
-{
-	text: currentUrl,
-	width: 256,
-	height: 256
-});
-
 document.getElementById('downloadBtn').addEventListener('click', function ()
 {
 	let canvas = document.querySelector("#qrcode canvas");
