@@ -39,7 +39,7 @@ $result = $conn->query($sql);
         Alternatif olarak baligin ID numarasini asagidaki butona tiklayarak da arama yapabilirsiniz.
         </h3>
         <input type="text" id="fish_id_input" placeholder="Balık ID'sini Girin"/>
-        <button id="id_search" onclick="location.href='https://balik.yeminlirobot.com/?kayit_id=' + target_id">ID İle Balık Ara</button>
+        <button id="id_search">ID İle Balık Ara</button>
         
         <?php if ($target_id != 0): ?>
 
