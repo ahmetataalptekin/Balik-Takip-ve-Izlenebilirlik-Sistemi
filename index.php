@@ -13,7 +13,15 @@ $sql = "SELECT kayit_id, cinsi, balik_cikis_yontemi, tutuldugu_bolge, sudan_ciki
 cikaran_gemi, limana_cikis_tarihi, cikarildigi_liman, tedarikci_id, tedarikci_adi FROM balik WHERE kayit_id = $target_id";
 $result = $conn->query($sql);
 
-// HTML başlık ve stil kısmı
+$theme = $_GET['theme'] ?? 'light';
+if ($theme === 'dark')
+{
+    echo '<link id="style" href="./dark_theme.css" rel="stylesheet">';
+}
+else
+{
+    echo '<link id="style" href="./light_theme.css" rel="stylesheet">';
+}
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +31,6 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balık Takip ve İzlenebilirlik Sistemi</title>
-    <link id="style" href = "./light_theme.css" rel = "stylesheet">
 </head>
 
 <body>

@@ -12,7 +12,9 @@ function goToFish() {
         return;
     }
 
-    window.location.href = "https://balik.yeminlirobot.com/?kayit_id=" + target_id;
+    styleLink = document.querySelector('#style');
+    let theme = styleLink.getAttribute('href') === './light_theme.css' ? 'light' : 'dark';
+    window.location.href = 'https://balik.yeminlirobot.com/?kayit_id=${target_id}&theme=${theme}';
 }
 
 // Butona tıklayınca
