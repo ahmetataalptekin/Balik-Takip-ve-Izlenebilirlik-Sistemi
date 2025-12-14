@@ -27,12 +27,12 @@ function changeTheme()
     styleButton = document.querySelector('#change_theme');
     if (styleLink.getAttribute('href') === './light_theme.css') {
         styleLink.setAttribute('href', './dark_theme.css');
-        styleButton.value = 'Aydınlık Moda Geç';
+        styleButton.textContent = 'Aydınlık Moda Geç';
     }
     else
     {
         styleLink.setAttribute('href', './light_theme.css');
-        styleButton.value = 'Karanlık Moda Geç';
+        styleButton.textContent = 'Karanlık Moda Geç';
     }
 }
 

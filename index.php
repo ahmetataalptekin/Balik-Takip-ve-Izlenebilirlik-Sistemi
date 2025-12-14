@@ -109,7 +109,6 @@ else
                 </div>
             </div>
         </div>
-        <?php endif; ?>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
         <script>
@@ -198,6 +197,7 @@ else
                 });
             });
         </script>
+        <?php endif; ?>
         <script src = "./index.js"></script>
     </div>
 </body>
