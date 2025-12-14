@@ -16,11 +16,11 @@ $result = $conn->query($sql);
 $theme = $_GET['theme'] ?? 'light';
 if ($theme === 'dark')
 {
-    echo '<link id="style" href="./dark_theme.css" rel="stylesheet">';
+    echo '<link id="style" href="./dark_theme2.css" rel="stylesheet">';
 }
 else
 {
-    echo '<link id="style" href="./light_theme.css" rel="stylesheet">';
+    echo '<link id="style" href="./light_theme2.css" rel="stylesheet">';
 }
 
 ?>
@@ -36,7 +36,16 @@ else
 <body>
     <div id = "container">
         <h1 id = "main-title">BALIK TAKIP VE IZLENEBILIRLIK SISTEMI</h1>
-        <button id="change_theme">Karanlık Moda Geç</button>
+        <?php
+        if ($theme === 'dark')
+        {
+            echo '<button id="change_theme">Aydınlık Moda Geç</button>';
+        }
+        else
+        {
+            echo '<button id="change_theme">Karanlık Moda Geç</button>';
+        }
+        ?>
         <h2>Balıkların denizden çıktıgı andan itibaren izlenebilirliğini sağlayan sistem.</h2>
         <h3>
             Alacağiniz baliğin olduğu kutudaki QR kodu okutun ve asağıdaki tabloya bilgileriniz gelecek.
@@ -198,7 +207,7 @@ else
             });
         </script>
         <?php endif; ?>
-        <script src = "./index.js"></script>
+        <script src = "./index2.js"></script>
     </div>
 </body>
 

@@ -13,8 +13,8 @@ function goToFish() {
     }
 
     styleLink = document.querySelector('#style');
-    let theme = styleLink.getAttribute('href') === './light_theme.css' ? 'light' : 'dark';
-    window.location.href = 'https://balik.yeminlirobot.com/?kayit_id=${target_id}&theme=${theme}';
+    let theme = styleLink.getAttribute('href') === './light_theme2.css' ? 'light' : 'dark';
+    window.location.href = 'https://balik.yeminlirobot.com/?kayit_id=' + target_id + '&theme=' + theme;
 }
 
 // Butona tıklayınca
@@ -25,13 +25,13 @@ function changeTheme()
 {
     styleLink = document.querySelector('#style');
     styleButton = document.querySelector('#change_theme');
-    if (styleLink.getAttribute('href') === './light_theme.css') {
-        styleLink.setAttribute('href', './dark_theme.css');
+    if (styleLink.getAttribute('href') === './light_theme2.css') {
+        styleLink.setAttribute('href', './dark_theme2.css');
         styleButton.textContent = 'Aydınlık Moda Geç';
     }
     else
     {
-        styleLink.setAttribute('href', './light_theme.css');
+        styleLink.setAttribute('href', './light_theme2.css');
         styleButton.textContent = 'Karanlık Moda Geç';
     }
 }
