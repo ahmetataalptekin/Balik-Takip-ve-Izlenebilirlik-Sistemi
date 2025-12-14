@@ -18,6 +18,24 @@ function goToFish() {
 // Butona tıklayınca
 document.querySelector('#id_search').addEventListener('click', goToFish);
 
+// Tema değiştirme
+function changeTheme()
+{
+    styleLink = document.querySelector('#style');
+    styleButton = document.querySelector('#change_theme');
+    if (styleLink.getAttribute('href') === './light_theme.css') {
+        styleLink.setAttribute('href', './dark_theme.css');
+        styleButton.value = 'Aydınlık Moda Geç';
+    }
+    else
+    {
+        styleLink.setAttribute('href', './light_theme.css');
+        styleButton.value = 'Karanlık Moda Geç';
+    }
+}
+
+document.querySelector('#change_theme').addEventListener('click', changeTheme);
+
 // Enter'a basınca
 document.querySelector('#fish_id_input').addEventListener('keydown', (event) => {
     if (event.key === "Enter") {

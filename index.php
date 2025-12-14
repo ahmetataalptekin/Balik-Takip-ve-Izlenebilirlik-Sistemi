@@ -23,20 +23,17 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balık Takip ve İzlenebilirlik Sistemi</title>
-    <link href = "./style.css" rel = "stylesheet">
+    <link id="style" href = "./light_theme.css" rel = "stylesheet">
 </head>
 
 <body>
     <div id = "container">
-        <h1 id = "main-title">
-        BALIK TAKIP VE IZLENEBILIRLIK SISTEMI
-        </h1>
-        <h2>
-        Baliklari denizden ciktigi andan itibaren izlenebilirligini saglayan sistem.
-        </h2>
+        <h1 id = "main-title">BALIK TAKIP VE IZLENEBILIRLIK SISTEMI</h1>
+        <button id="change_theme">Karanlık Moda Geç</button>
+        <h2>Balıkların denizden çıktıgı andan itibaren izlenebilirliğini sağlayan sistem.</h2>
         <h3>
-        Alacaginiz baligin oldugu kutudaki QR kodu okutun ve asagidaki tabloya bilgileriniz gelecek.
-        Alternatif olarak baligin ID numarasini asagidaki butona tiklayarak da arama yapabilirsiniz.
+            Alacağiniz baliğin olduğu kutudaki QR kodu okutun ve asağıdaki tabloya bilgileriniz gelecek.
+            Alternatif olarak balığın ID numarasini asağıya yazarak ve butona tıklayarak da arama yapabilirsiniz.
         </h3>
         <input type="text" id="fish_id_input" placeholder="Balık ID'sini Girin"/>
         <button id="id_search">ID İle Balık Ara</button>
@@ -91,7 +88,6 @@ $result = $conn->query($sql);
                 ?>
             </tbody>
         </table>
-        <?php endif; ?>
         <!-- QR Aç Kapa -->
         <div id="qr-section" style="max-width:340px; margin-top:20px;">
             <h2 id="qr-toggle" style="cursor:pointer; user-select:none; display:flex; align-items:center; gap:8px;">
@@ -106,6 +102,7 @@ $result = $conn->query($sql);
                 </div>
             </div>
         </div>
+        <?php endif; ?>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
         <script>
